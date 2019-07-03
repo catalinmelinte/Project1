@@ -2,23 +2,22 @@
 <html lang='en-US'>
 
 <head>
-<title>X and O game!</title>
+<title>Tic-Tac-Toe Game</title>
 <meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-sclae=1.0'>
 <link rel='stylesheet' href='p1.css'>
 </head>
 
 <body>
-<h1>My first project:X and O game.</h1>
-<h4>Task 1:<br>Make 2 buttons,one that will choose x and the other 0. Also design the table where the user can play the game.</h4>
-<h4>Task 2:<br>Make the reset button. Check also the winner after each input.</h4>
-<h4>Task 3:<br>Input only in the empty box.</h4>
+<h1>My first project!</h1>
+<h3>Tic-Tac-Toe Game</h3>
+<p>Click <b>Start</b> button to begin the game.</p>
 
 <div>
-<button type='button' onclick='chooseX()'> X </button>
-<button type='button' onclick='chooseO()'> O </button>
+<button type='button' onclick='startGame()'> Start </button>
 </div>
-<p id='test'> </p>
+
+<p id='test'></p>
 
 <div>
 <table>
@@ -41,6 +40,20 @@
 </div>
 <br>
 
+<div>
+<table id='t02'>
+  <tr>
+    <th>Player 1 </th>
+    <th>Player 2 </th>
+  </tr>
+  <tr>
+    <td>Score:   </td>
+    <td>Score:   </td>
+  </tr>
+</table>
+</div>
+<br>
+ 
 <div>
 <button type='button' onclick='resetButton()'>Click to play again!</button>
 </div>

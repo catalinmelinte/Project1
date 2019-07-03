@@ -1,13 +1,7 @@
-var choosen='';
+var choosen='X';
 
-function chooseX(){
-  choosen='X';
-  document.getElementById('test').innerHTML='You have choosen '+ choosen +'. Make your move!';
-}
-
-function chooseO(){
-  choosen='O';
-  document.getElementById('test').innerHTML='You have choosen '+ choosen +'. Make your move!';
+function startGame(){
+    document.getElementById('test').innerHTML='Player 1: X. Make your move!';
 }
 
 var gameIsFinished=false;
@@ -63,7 +57,15 @@ function returnSelected(t){
 
  if(allBoxFilled()){
     alert("Game Over! No player won: start again.")
-  }  
+  } 
+
+ if(choosen=='X'){
+   choosen='O'; 
+   document.getElementById('test').innerHTML='Player 2: O. Make your move!'
+ }else if(choosen=='O'){
+    choosen='X';
+    document.getElementById('test').innerHTML='Player 1: X. Make your move!';
+ }
 }
   
 

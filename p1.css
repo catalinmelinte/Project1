@@ -1,9 +1,26 @@
 table {
-  width: 5%;
+  width: 10%;
   border-collapse: collapse; 
+  background-color: #E0FFFF;
 }
 
-td {
+  td {
   border: 2px solid #000000;
-  padding: 10px;
+  padding: 20px;
+}
+
+#t02 {
+  width: 6%;
+  border-collapse: collapse;
+  background-color: #ff8080;
+  font-size: 10px;
+}
+
+#t02 th, #t02 td {
+  border: 2px solid #000000;
+  padding: 5px;
+}
+
+button {
+  background-color: #66CDAA;
 }
