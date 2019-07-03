@@ -12,6 +12,17 @@ function chooseO(){
 
 var gameIsFinished=false;
 
+function allBoxFilled(){
+    var allBoxFilled=true;
+    var c=document.querySelectorAll('td');
+    for(var i=0;i<c.length;i++){
+      if(c[i].innerHTML==''){
+      allBoxFilled=false;
+      }
+    }
+    return allBoxFilled;
+  } 
+
 function returnSelected(t){
   if(gameIsFinished){
     alert('Game is finished. Press "Click to play again!"');
@@ -49,17 +60,6 @@ function returnSelected(t){
   }else if(t.innerHTML!=''){
           alert('Choose an empty box!');
         }  
-
-  function allBoxFilled(){
-    var allBoxFilled=true;
-    var c=document.querySelectorAll('td');
-    for(var i=0;i<c.length;i++){
-      if(c[i].innerHTML==''){
-      allBoxFilled=false;
-      }
-    }
-    return allBoxFilled;
-  } 
 
  if(allBoxFilled()){
     alert("Game Over! No player won: start again.")
