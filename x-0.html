@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+
+<head>
+<title>X and O game!</title>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-sclae=1.0'>
+<link rel='stylesheet' href='p1.css'>
+</head>
+
+<body>
+<h1>My first project:X and O game.</h1>
+<h4>Task 1:<br>Make 2 buttons,one that will choose x and the other 0. Also design the table where the user can play the game.</h4>
+<h4>Task 2:<br>Make the reset button. Check also the winner after each input.</h4>
+<h4>Task 3:<br>Input only in the emty box.</h4>
+
+
+<div>
+<button type='button' onclick='chooseX()'> X </button>
+<button type='button' onclick='chooseO()'> O </button>
+</div>
+<p id='test'> </p>
+
+<div>
+<table>
+  <tr>
+   <td onclick='returnSelected(this)'></td>
+   <td onclick='returnSelected(this)'></td>
+   <td onclick='returnSelected(this)'></td>
+  </tr>
+  <tr>
+   <td onclick='returnSelected(this)'></td>
+   <td onclick='returnSelected(this)'></td>
+   <td onclick='returnSelected(this)'></td>
+  </tr>
+  <tr>
+   <td onclick='returnSelected(this)'></td>
+   <td onclick='returnSelected(this)'></td>
+   <td onclick='returnSelected(this)'></td>
+  </tr>
+</table>
+</div>
+<br>
+
+<div>
+<button type='button' onclick='resetButton()' >Click to play again!</button>
+</div>
+
+<script src='p1.js'></script>
+</body>
+</html>
