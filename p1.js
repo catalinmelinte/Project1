@@ -29,11 +29,18 @@ function returnSelected(t){
         return;
       }
     }
+
     var d=document.querySelectorAll('td');
-    if((d[0].innerHTML==d[3].innerHTML && d[0].innerHTML==d[6].innerHTML && d[0].innerHTML!='')||
-       (d[1].innerHTML==d[4].innerHTML && d[1].innerHTML==d[7].innerHTML && d[1].innerHTML!='')||
-       (d[2].innerHTML==d[5].innerHTML && d[2].innerHTML==d[8].innerHTML && d[2].innerHTML!='')||
-       (d[0].innerHTML==d[4].innerHTML && d[0].innerHTML==d[8].innerHTML && d[0].innerHTML!='')){
+    for(var j=0;j<3;j++){
+      if(d[j].innerHTML==d[j+3].innerHTML && d[j].innerHTML==d[j+6].innerHTML && d[j].innerHTML!=''){
+        alert('You have won!');
+        gameIsFinished=true;
+        return;
+      }    
+     }
+    
+    if((d[0].innerHTML==d[4].innerHTML && d[0].innerHTML==d[8].innerHTML && d[0].innerHTML!='')||
+       (d[2].innerHTML==d[4].innerHTML && d[2].innerHTML==d[6].innerHTML && d[2].innerHTML!='')){
          alert('You have won!');
          gameIsFinished=true;
          return;
