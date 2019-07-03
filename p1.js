@@ -8,7 +8,7 @@ var gameIsFinished=false;
 
 function allBoxFilled(){
     var allBoxFilled=true;
-    var c=document.querySelectorAll('td');
+    var c=document.getElementById('game-table').querySelectorAll('td');
     for(var i=0;i<c.length;i++){
       if(c[i].innerHTML==''){
       allBoxFilled=false;
@@ -25,7 +25,7 @@ function returnSelected(t){
 
   if(t.innerHTML==''){
     t.innerHTML=choosen;
-    var r=document.querySelectorAll('tr');
+    var r=document.getElementById('game-table').querySelectorAll('tr');
     for(var i=0;i<r.length;i++){
       var c=r[i].querySelectorAll('td');
       if(c[0].innerHTML==c[1].innerHTML && c[0].innerHTML==c[2].innerHTML && c[0].innerHTML!=''){
@@ -34,8 +34,8 @@ function returnSelected(t){
         return;
       }
     }
-
-    var d=document.querySelectorAll('td');
+    
+    var d=document.getElementById('game-table').querySelectorAll('td');
     for(var j=0;j<3;j++){
       if(d[j].innerHTML==d[j+3].innerHTML && d[j].innerHTML==d[j+6].innerHTML && d[j].innerHTML!=''){
         alert('You have won!');
@@ -53,15 +53,15 @@ function returnSelected(t){
     
   }else if(t.innerHTML!=''){
           alert('Choose an empty box!');
-        }  
+  }  
 
  if(allBoxFilled()){
-    alert("Game Over! No player won: start again.")
-  } 
+    alert("Game Over! No player won: start again.");
+ } 
 
  if(choosen=='X'){
    choosen='O'; 
-   document.getElementById('test').innerHTML='Player 2: O. Make your move!'
+   document.getElementById('test').innerHTML='Player 2: O. Make your move!';
  }else if(choosen=='O'){
     choosen='X';
     document.getElementById('test').innerHTML='Player 1: X. Make your move!';
@@ -70,7 +70,7 @@ function returnSelected(t){
   
 
 function resetButton(){
-  var r=document.querySelectorAll('td');
+  var r=document.getElementById('game-table').querySelectorAll('td');
   for(var i=0;i<r.length;i++){
     r[i].innerHTML='';
     gameIsFinished=false;
