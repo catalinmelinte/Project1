@@ -29,10 +29,34 @@ function returnSelected(t){
         return;
       }
     }
- 
+    var d=document.querySelectorAll('td');
+    if((d[0].innerHTML==d[3].innerHTML && d[0].innerHTML==d[6].innerHTML && d[0].innerHTML!='')||
+       (d[1].innerHTML==d[4].innerHTML && d[1].innerHTML==d[7].innerHTML && d[1].innerHTML!='')||
+       (d[2].innerHTML==d[5].innerHTML && d[2].innerHTML==d[8].innerHTML && d[2].innerHTML!='')||
+       (d[0].innerHTML==d[4].innerHTML && d[0].innerHTML==d[8].innerHTML && d[0].innerHTML!='')){
+         alert('You have won!');
+         gameIsFinished=true;
+         return;
+      }
+    
   }else if(t.innerHTML!=''){
-          alert('Choose an empty box!');  
+          alert('Choose an empty box!');
         }  
+
+  function allBoxFilled(){
+    var allBoxFilled=true;
+    var c=document.querySelectorAll('td');
+    for(var i=0;i<c.length;i++){
+      if(c[i].innerHTML==''){
+      allBoxFilled=false;
+      }
+    }
+    return allBoxFilled;
+  } 
+
+ if(allBoxFilled()){
+    alert("Game Over! No player won: start again.")
+  }  
 }
   
 
