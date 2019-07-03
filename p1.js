@@ -1,4 +1,5 @@
 var choosen='X';
+var player;
 
 function startGame(){
     document.getElementById('test').innerHTML='Player 1: X. Make your move!';
@@ -29,7 +30,7 @@ function returnSelected(t){
     for(var i=0;i<r.length;i++){
       var c=r[i].querySelectorAll('td');
       if(c[0].innerHTML==c[1].innerHTML && c[0].innerHTML==c[2].innerHTML && c[0].innerHTML!=''){
-        alert('You have won!');
+        alert('You have won '+player);
 	gameIsFinished=true;
         return;
       }
@@ -38,7 +39,7 @@ function returnSelected(t){
     var d=document.getElementById('game-table').querySelectorAll('td');
     for(var j=0;j<3;j++){
       if(d[j].innerHTML==d[j+3].innerHTML && d[j].innerHTML==d[j+6].innerHTML && d[j].innerHTML!=''){
-        alert('You have won!');
+        alert('You have won '+player);
         gameIsFinished=true;
         return;
       }    
@@ -46,7 +47,7 @@ function returnSelected(t){
     
     if((d[0].innerHTML==d[4].innerHTML && d[0].innerHTML==d[8].innerHTML && d[0].innerHTML!='')||
        (d[2].innerHTML==d[4].innerHTML && d[2].innerHTML==d[6].innerHTML && d[2].innerHTML!='')){
-         alert('You have won!');
+         alert('You have won '+player);
          gameIsFinished=true;
          return;
       }
@@ -61,10 +62,13 @@ function returnSelected(t){
 
  if(choosen=='X'){
    choosen='O'; 
-   document.getElementById('test').innerHTML='Player 2: O. Make your move!';
+   player='Player2';
+   document.getElementById('test').innerHTML=player+' : O. Make your move!';
  }else if(choosen=='O'){
     choosen='X';
-    document.getElementById('test').innerHTML='Player 1: X. Make your move!';
+    player='Player1';
+    document.getElementById('test').innerHTML=player+' : X. Make your move!';
+    
  }
 }
   
