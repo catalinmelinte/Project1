@@ -10,15 +10,24 @@ table {
 }
 
 #score-table {
-  width: 6%;
+  width: 10%;
   border-collapse: collapse;
   background-color: #ff8080;
-  font-size: 10px;
+  font-size: 12px;
 }
 
+caption {
+  font-size: 15px;
+  font-weight: bold;
+}
 #score-table th, #score-table td {
   border: 2px solid #000000;
   padding: 5px;
+}
+
+#score-table td {
+  text-align: center;
+  font-size: 12px;
 }
 
 button {

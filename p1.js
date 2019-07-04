@@ -1,8 +1,13 @@
 var choosen='X';
 var player;
+var score1=1;
+var score2=1;
+
+document.getElementById('score-table').querySelectorAll('td')[0].innerHTML=0;
+document.getElementById('score-table').querySelectorAll('td')[1].innerHTML=0;
 
 function startGame(){
-    document.getElementById('test').innerHTML='Player 1: X. Make your move!';
+    document.getElementById('test').innerHTML='Player 1: X. Make your move!';   
 }
 
 var gameIsFinished=false;
@@ -30,25 +35,57 @@ function returnSelected(t){
     for(var i=0;i<r.length;i++){
       var c=r[i].querySelectorAll('td');
       if(c[0].innerHTML==c[1].innerHTML && c[0].innerHTML==c[2].innerHTML && c[0].innerHTML!=''){
+        gameIsFinished=true;
         alert('You have won '+player);
-	gameIsFinished=true;
+	
+        var s=document.getElementById('score-table').querySelectorAll('td');
+        if(player=='Player 1'){
+          s[0].innerHTML=score1;
+          score1++;
+        } else if(player=='Player 2'){
+            s[1].innerHTML=score2;
+            score2++;
+        }
+
         return;
       }
     }
+
+
     
     var d=document.getElementById('game-table').querySelectorAll('td');
     for(var j=0;j<3;j++){
       if(d[j].innerHTML==d[j+3].innerHTML && d[j].innerHTML==d[j+6].innerHTML && d[j].innerHTML!=''){
-        alert('You have won '+player);
         gameIsFinished=true;
+        alert('You have won '+player);
+
+        var s=document.getElementById('score-table').querySelectorAll('td');
+        if(player=='Player 1'){
+          s[0].innerHTML=score1;
+          score1++;
+        } else if(player=='Player 2'){
+            s[1].innerHTML=score2;
+            score2++;
+        }
+
         return;
       }    
      }
     
     if((d[0].innerHTML==d[4].innerHTML && d[0].innerHTML==d[8].innerHTML && d[0].innerHTML!='')||
        (d[2].innerHTML==d[4].innerHTML && d[2].innerHTML==d[6].innerHTML && d[2].innerHTML!='')){
-         alert('You have won '+player);
          gameIsFinished=true;
+         alert('You have won '+player);
+
+        var s=document.getElementById('score-table').querySelectorAll('td');
+        if(player=='Player 1'){
+          s[0].innerHTML=score1;
+          score1++;
+        } else if(player=='Player 2'){
+            s[1].innerHTML=score2;
+            score2++;
+        }
+
          return;
       }
     
@@ -62,11 +99,11 @@ function returnSelected(t){
 
  if(choosen=='X'){
    choosen='O'; 
-   player='Player2';
+   player='Player 2';
    document.getElementById('test').innerHTML=player+' : O. Make your move!';
  }else if(choosen=='O'){
     choosen='X';
-    player='Player1';
+    player='Player 1';
     document.getElementById('test').innerHTML=player+' : X. Make your move!';
     
  }
