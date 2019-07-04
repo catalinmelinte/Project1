@@ -54,10 +54,10 @@ function returnSelected(t){
     alert("Game Over! No player won: start again.");
  } 
 
- swichPlayer();
+ switchPlayer();
 }
 
-function swichPlayer(){
+function switchPlayer(){
   if(choosen=='X'){
     choosen='O'; 
     player='Player 2';
