@@ -1,27 +1,13 @@
 var choosen='X';
 var player;
-var score1=1;
-var score2=1;
-
-document.getElementById('score-table').querySelectorAll('td')[0].innerHTML=0;
-document.getElementById('score-table').querySelectorAll('td')[1].innerHTML=0;
+var score1=0;
+var score2=0;
 
 function startGame(){
     document.getElementById('test').innerHTML='Player 1: X. Make your move!';   
 }
 
 var gameIsFinished=false;
-
-function allBoxFilled(){
-    var allBoxFilled=true;
-    var c=document.getElementById('game-table').querySelectorAll('td');
-    for(var i=0;i<c.length;i++){
-      if(c[i].innerHTML==''){
-      allBoxFilled=false;
-      }
-    }
-    return allBoxFilled;
-  } 
 
 function returnSelected(t){
   if(gameIsFinished){
@@ -37,37 +23,17 @@ function returnSelected(t){
       if(c[0].innerHTML==c[1].innerHTML && c[0].innerHTML==c[2].innerHTML && c[0].innerHTML!=''){
         gameIsFinished=true;
         alert('You have won '+player);
-	
-        var s=document.getElementById('score-table').querySelectorAll('td');
-        if(player=='Player 1'){
-          s[0].innerHTML=score1;
-          score1++;
-        } else if(player=='Player 2'){
-            s[1].innerHTML=score2;
-            score2++;
-        }
-
+        updateScore();
         return;
       }
     }
 
-
-    
     var d=document.getElementById('game-table').querySelectorAll('td');
     for(var j=0;j<3;j++){
       if(d[j].innerHTML==d[j+3].innerHTML && d[j].innerHTML==d[j+6].innerHTML && d[j].innerHTML!=''){
         gameIsFinished=true;
         alert('You have won '+player);
-
-        var s=document.getElementById('score-table').querySelectorAll('td');
-        if(player=='Player 1'){
-          s[0].innerHTML=score1;
-          score1++;
-        } else if(player=='Player 2'){
-            s[1].innerHTML=score2;
-            score2++;
-        }
-
+	updateScore();
         return;
       }    
      }
@@ -76,16 +42,7 @@ function returnSelected(t){
        (d[2].innerHTML==d[4].innerHTML && d[2].innerHTML==d[6].innerHTML && d[2].innerHTML!='')){
          gameIsFinished=true;
          alert('You have won '+player);
-
-        var s=document.getElementById('score-table').querySelectorAll('td');
-        if(player=='Player 1'){
-          s[0].innerHTML=score1;
-          score1++;
-        } else if(player=='Player 2'){
-            s[1].innerHTML=score2;
-            score2++;
-        }
-
+         updateScore();
          return;
       }
     
@@ -97,18 +54,46 @@ function returnSelected(t){
     alert("Game Over! No player won: start again.");
  } 
 
- if(choosen=='X'){
-   choosen='O'; 
-   player='Player 2';
-   document.getElementById('test').innerHTML=player+' : O. Make your move!';
- }else if(choosen=='O'){
-    choosen='X';
-    player='Player 1';
-    document.getElementById('test').innerHTML=player+' : X. Make your move!';
-    
- }
+ swichPlayer();
 }
-  
+
+function swichPlayer(){
+  if(choosen=='X'){
+    choosen='O'; 
+    player='Player 2';
+    document.getElementById('test').innerHTML=player+' : O. Make your move!';
+    return player;
+  }else if(choosen=='O'){
+     choosen='X';
+     player='Player 1';
+     document.getElementById('test').innerHTML=player+' : X. Make your move!';
+     return player;
+  }
+}
+
+function updateScore(){
+  document.getElementById('score-table').querySelectorAll('td')[0].innerHTML=score1;
+  document.getElementById('score-table').querySelectorAll('td')[1].innerHTML=score2;
+  var s=document.getElementById('score-table').querySelectorAll('td');
+        if(player=='Player 1'){
+          s[0].innerHTML=score1+1;
+          score1++;
+        } else if(player=='Player 2'){
+            s[1].innerHTML=score2+1;
+            score2++;
+        }
+}
+
+function allBoxFilled(){
+    var allBoxFilled=true;
+    var c=document.getElementById('game-table').querySelectorAll('td');
+    for(var i=0;i<c.length;i++){
+      if(c[i].innerHTML==''){
+      allBoxFilled=false;
+      }
+    }
+    return allBoxFilled;
+} 
 
 function resetButton(){
   var r=document.getElementById('game-table').querySelectorAll('td');
@@ -117,3 +102,4 @@ function resetButton(){
     gameIsFinished=false;
   }
 }
+
