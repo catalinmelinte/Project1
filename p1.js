@@ -25,11 +25,11 @@ function returnSelected(t){
     if(checkWinner()){
       alert('You have won '+player+'. Press Start / Reset button.');
       updateScore();
-      gameIsFinished=true;
+      gameIsFinished=true;  
     }
   }else if(t.innerHTML!=''){
           alert('Choose an empty box!');
-  }  
+        }  
 
  if(allBoxFilled()){
     alert("Game Over! No player won: start again.");
@@ -53,26 +53,19 @@ function switchPlayer(){
 }
 
 function checkWinner(){
-    var r=document.getElementById('game-table').querySelectorAll('tr');
-    for(var i=0;i<r.length;i++){
-      var c=r[i].querySelectorAll('td');
-      if(c[0].innerHTML==c[1].innerHTML && c[0].innerHTML==c[2].innerHTML && c[0].innerHTML!=''){
-        return true;
-      }
+  var winningPosition=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  var d=document.getElementById('score-table').querySelectorAll('td');
+  for(var i=0;i<winningPosition.length;i++){
+    var position=winningPosition[i];
+    if(d[position[0]]==d[position[1]] && d[position[0]]==d[position[2]] && d[position[0]]!=''){
+      d[position[0]].setAttribute('class','win');
+      d[position[1]].setAttribute('class','win');
+      d[position[2]].setAttribute('class','win');
+      return true;
     }
-
-    var d=document.getElementById('game-table').querySelectorAll('td');
-    for(var j=0;j<3;j++){
-      if(d[j].innerHTML==d[j+3].innerHTML && d[j].innerHTML==d[j+6].innerHTML && d[j].innerHTML!=''){
-        return true;
-      }    
-     }
-    
-    if((d[0].innerHTML==d[4].innerHTML && d[0].innerHTML==d[8].innerHTML && d[0].innerHTML!='')||
-       (d[2].innerHTML==d[4].innerHTML && d[2].innerHTML==d[6].innerHTML && d[2].innerHTML!='')){
-         return true;
-      }
+  }    
 }
+
 
 function updateScore(){
   document.getElementById('score-table').querySelectorAll('td')[0].innerHTML=score1;
