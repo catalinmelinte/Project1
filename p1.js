@@ -3,8 +3,11 @@ var player;
 var score1=0;
 var score2=0;
 
+document.getElementById('score-table').querySelectorAll('td')[0].innerHTML=score1;
+document.getElementById('score-table').querySelectorAll('td')[1].innerHTML=score2;   
+
 function startResetGame(){
-  document.getElementById('test').innerHTML='Player 1: X. Make your move!';   
+  document.getElementById('test').innerHTML='Player 1: X. Make your move!';
   var r=document.getElementById('game-table').querySelectorAll('td');
   for(var i=0;i<r.length;i++){
     r[i].innerHTML='';
@@ -70,8 +73,6 @@ function checkWinner(){
 
 
 function updateScore(){
-  document.getElementById('score-table').querySelectorAll('td')[0].innerHTML=score1;
-  document.getElementById('score-table').querySelectorAll('td')[1].innerHTML=score2;
   var s=document.getElementById('score-table').querySelectorAll('td');
         if(player=='Player 1'){
           s[0].innerHTML=score1+1;
