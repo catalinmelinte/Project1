@@ -20,6 +20,7 @@ caption {
   font-size: 15px;
   font-weight: bold;
 }
+
 #score-table th, #score-table td {
   border: 2px solid #000000;
   padding: 5px;
@@ -36,4 +37,8 @@ button {
 
 .win {
   background-color:#32CD32;
+}
+
+.new {
+  background-color:#E0FFFF;
 }

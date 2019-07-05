@@ -8,6 +8,7 @@ function startResetGame(){
   var r=document.getElementById('game-table').querySelectorAll('td');
   for(var i=0;i<r.length;i++){
     r[i].innerHTML='';
+    r[i].setAttribute('class','new');
     gameIsFinished=false;
   }
 }
@@ -54,16 +55,17 @@ function switchPlayer(){
 
 function checkWinner(){
   var winningPosition=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-  var d=document.getElementById('score-table').querySelectorAll('td');
+  var d=document.getElementById('game-table').querySelectorAll('td');
   for(var i=0;i<winningPosition.length;i++){
     var position=winningPosition[i];
-    if(d[position[0]]==d[position[1]] && d[position[0]]==d[position[2]] && d[position[0]]!=''){
+    if(d[position[0]].innerHTML==d[position[1]].innerHTML && d[position[0]].innerHTML==d[position[2]].innerHTML && d[position[0]].innerHTML!=''){
       d[position[0]].setAttribute('class','win');
       d[position[1]].setAttribute('class','win');
       d[position[2]].setAttribute('class','win');
       return true;
     }
-  }    
+  } 
+  return false;  
 }
 
 
